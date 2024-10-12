@@ -1,31 +1,64 @@
-class Student{
-	private String name;
-	private int age;
-	public String getName() {
-        return name;
-    }
-	public void setName(String name) {
-        this.name = name;
-    }
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
+class CreatureInfo {
+    private int id;
+    private Boolean isHuman;
+    private String planet;
+    private int age;
+    private String[] traits;
 
+    public int getID() {
+        return id;
+    }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+
+    public Boolean getIsHuman() {
+        return isHuman;
+    }
+
+    public void setIsHuman(Boolean isHuman) {
+        this.isHuman = isHuman;
+    }
+
+    public String getPlanet() {
+        return planet;
+    }
+
+    public void setPlanet(String planet) {
+        this.planet = planet;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String[] getTraits() {
+        return traits;
+    }
+
+    public void setTraits(String[] traits) {
+        this.traits = traits;
+    }
 }
+
 
 public class Main {
 	 public static void main(String[] args){
 		
-		Student Elev = new Student();
+		CreatureInfo creature = new CreatureInfo();
 
-		Elev.setName("Betty");
-		Elev.setAge(19);
-
-		System.out.println("Student Name: " + Elev.getName());
-        System.out.println("Student Age: " + Elev.getAge());
+		creature.setAge(18);
+		creature.setID(0);
+		creature.setIsHuman(true);
+		creature.setPlanet("Kashyyyk");
+		creature.setTraits(new String[] {"TALL", "HAIRY"});
+		System.out.println("CreatureInfo planet: " + creature.getPlanet());
+        System.out.println("CreatureInfo Age: " + creature.getAge());
 
 	 }
 }
