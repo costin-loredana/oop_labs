@@ -1,6 +1,7 @@
 import java.util.List;
 //import java.util.Scanner;
 import java.util.Map;
+import java.util.ArrayList;
 class CreatureInfo {
     private Long id;
     private Boolean isHuman;
@@ -76,11 +77,21 @@ class CreatureInfo {
 }
 
 
+
 public class Main {
     public static void main(String[] args) {
+
+        EntityClassifier entityClassifier = new EntityClassifier();
+        
+        // Specify input and output file paths
+        String inputFilePath = "input.json";   // Path to the input JSON file
+        String outputFilePath = "input2.json"; // Path to the output JSON file
+        
+        // Call the method to classify entities
+        entityClassifier.classifyEntitiesFromFile(inputFilePath, outputFilePath);
         ReadFile readFile = new ReadFile();
         // Container to hold the parsed creatures
-        List<CreatureInfo> creatures = readFile.parseJsonFile("input.json");
+        List<CreatureInfo> creatures = readFile.parseJsonFile("input2.json");
         Container container = new Container();
 
         if (creatures != null && !creatures.isEmpty()) {
@@ -96,18 +107,28 @@ public class Main {
                 List<CreatureInfo> creatureList = classifCreatures.get(universe);
                 if (creatureList != null && !creatureList.isEmpty()) {
                     for (CreatureInfo creature : creatureList) {
-                        // Displaying the details of each creature
-                        System.out.println("ID: " + creature.getId() + 
-                                           ", Is Human: " + creature.getIsHuman() + 
-                                           ", Planet: " + creature.getPlanet() + 
-                                           ", Age: " + creature.getAge() + 
-                                           ", Traits: " + String.join(", ", creature.getTraits()));
+                        // Displaying the details of each creature using toString
+                        System.out.println(creature);  // This uses the overridden toString method
                     }
                 } else {
                     System.out.println("No creatures found in this universe.");
                 }
                 System.out.println(); // Empty line for better readability
             }
+
+
+            StarWars starWars = new StarWars();
+            List<CreatureInfo> starWarsCreatures = starWars.classifyCreatures(creatures);
+
+            System.out.println("Star Wars Universe Creatures:");
+            for (CreatureInfo creature : starWarsCreatures) {
+            System.out.println(creature);
+        }
+
+            // Write the classified creatures to JSON files
+            JsonWrite jsonWriter = new JsonWrite();
+            jsonWriter.writeCreatures(classifCreatures);
+
         } else {
             System.out.println("No creatures found or an error occurred.");
         }

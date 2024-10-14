@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EntityClassifier",
+            "request": "launch",
+            "mainClass": "EntityClassifier",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
+            "name": "OrganizeData",
+            "request": "launch",
+            "mainClass": "OrganizeData",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
+            "name": "CreatureClassifier",
+            "request": "launch",
+            "mainClass": "CreatureClassifier",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
             "name": "ClassificationFlow",
             "request": "launch",
             "mainClass": "ClassificationFlow",

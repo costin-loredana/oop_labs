@@ -1,0 +1,37 @@
+[
+  {
+    "id": 0,
+    "isHuman": false,
+    "planet": "Kashyyyk",
+    "age": 253,
+    "traits": ["HAIRY", "TALL"]
+  },
+  {
+    "id": 10,
+    "isHuman": null,
+    "planet": "Endor",
+    "age": null,
+    "traits": []
+  },
+  {
+    "id": 12,
+    "isHuman": false,
+    "planet": "Endor",
+    "age": 34,
+    "traits": ["HAIRY", "SHORT"]
+  },
+  {
+    "id": 13,
+    "isHuman": null,
+    "planet": "Kashyyyk",
+    "age": 352,
+    "traits": ["HAIRY", "TALL"]
+  },
+  {
+    "id": 20,
+    "isHuman": false,
+    "planet": "Endor",
+    "age": 22,
+    "traits": []
+  }
+]
