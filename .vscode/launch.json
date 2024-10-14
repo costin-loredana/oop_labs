@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ClassificationFlow",
+            "request": "launch",
+            "mainClass": "ClassificationFlow",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",

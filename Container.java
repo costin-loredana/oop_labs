@@ -15,7 +15,7 @@ public class Container {
 
     public void displayCreatures(){
         for(CreatureInfo creature: creatures){
-            System.out.println("CreatureInfo ID: " + creature.getID());
+            System.out.println("CreatureInfo ID: " + creature.getId());
             System.out.println("Is Human: " + creature.getIsHuman());
             System.out.println("Planet: " + creature.getPlanet());
             System.out.println("Age: " + creature.getAge());
@@ -30,7 +30,7 @@ public class Container {
         for(CreatureInfo creature: creatures){
             switch(atribute.toLowerCase()){
                 case "id":
-                    System.out.println("ID:" + creature.getID());
+                    System.out.println("ID:" + creature.getId());
                     break;
 
                 case "planet":

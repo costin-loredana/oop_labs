@@ -20,7 +20,6 @@ public class ReadFile {
             JSONObject inpJsonObj = (JSONObject) obj;
             System.out.println("Parsed JSON: " + inpJsonObj.toJSONString());
 
-            // Assuming you have an array under the key "data"
             JSONArray array = (JSONArray) inpJsonObj.get("data");
 
             for (Object objData : array) {
@@ -29,9 +28,13 @@ public class ReadFile {
                 Long id = (Long) data.get("id");
                 Boolean isHuman = (Boolean) data.get("isHumanoid");
                 String planet = (String) data.get("planet");
+                if (planet == null) {
+                    System.out.println("Warning: Planet is missing for ID: " + id);
+                     continue; // Skip this creature if planet is not provided
+                }
                 // Use safe casting for age
                 Long ageObj = (Long) data.get("age");
-                int age = ageObj != null ? ageObj.intValue() : 0; // Default age to 0 if not found
+                Integer age = ageObj != null ? ageObj.intValue() : null; // Default age to null if not found
 
                 JSONArray traits = (JSONArray) data.get("traits");
                 String[] traitsArray = new String[0]; // Default to empty array
@@ -55,6 +58,6 @@ public class ReadFile {
         } catch (ClassCastException e) {
             System.out.println("Error in casting: " + e.getMessage());
         }
-        return creatures; // Return the list of CreatureInfo objects
+        return creatures; 
     }
 }
