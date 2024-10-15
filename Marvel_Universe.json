@@ -1,0 +1,16 @@
+[
+  {
+    "id": 7,
+    "isHuman": true,
+    "planet": "Asgard",
+    "age": 2034,
+    "traits": ["BLONDE", "TALL"]
+  },
+  {
+    "id": 18,
+    "isHuman": true,
+    "planet": "Asgard",
+    "age": null,
+    "traits": ["BLONDE", "TALL"]
+  }
+]

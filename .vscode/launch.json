@@ -1,0 +1,59 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "EntityClassifier",
+            "request": "launch",
+            "mainClass": "EntityClassifier",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
+            "name": "OrganizeData",
+            "request": "launch",
+            "mainClass": "OrganizeData",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
+            "name": "CreatureClassifier",
+            "request": "launch",
+            "mainClass": "CreatureClassifier",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
+            "name": "ClassificationFlow",
+            "request": "launch",
+            "mainClass": "ClassificationFlow",
+            "projectName": "oop_labs_2b1363fc"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "-classpath lib/json-simple-1.1.1.jar"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "oop_labs_2b1363fc",
+            "vmArgs": "-classpath lib/json-simple-1.1.1.jar"
+        },
+        {
+            "type": "java",
+            "name": "ReadFile",
+            "request": "launch",
+            "mainClass": "ReadFile",
+            "projectName": "oop_labs_2b1363fc",
+            "vmArgs": "-classpath lib/json-simple-1.1.1.jar"
+        }
+    ]
+}

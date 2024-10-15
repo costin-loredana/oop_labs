@@ -1,0 +1,30 @@
+[
+  {
+    "id": 4,
+    "isHuman": null,
+    "planet": "Earth",
+    "age": null,
+    "traits": ["SHORT", "BULKY"]
+  },
+  {
+    "id": 9,
+    "isHuman": true,
+    "planet": "Earth",
+    "age": 124,
+    "traits": ["SHORT", "BULKY"]
+  },
+  {
+    "id": 15,
+    "isHuman": true,
+    "planet": "Earth",
+    "age": 451,
+    "traits": ["BLONDE", "TALL"]
+  },
+  {
+    "id": 19,
+    "isHuman": true,
+    "planet": "Earth",
+    "age": 451,
+    "traits": ["BLONDE", "POINTY_EARS"]
+  }
+]

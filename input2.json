@@ -1,0 +1,157 @@
+{
+  "data" : [ {
+    "id" : 0,
+    "planet" : "Kashyyyk",
+    "age" : 253,
+    "traits" : [ "HAIRY", "TALL" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 1,
+    "planet" : "Betelgeuse",
+    "age" : 59,
+    "traits" : [ "EXTRA_ARMS", "EXTRA_HEAD" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 2,
+    "planet" : "Vogsphere",
+    "age" : null,
+    "traits" : [ "BULKY" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 3,
+    "planet" : "Kashyyyk",
+    "age" : 253,
+    "traits" : [ "HAIRY", "TALL" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 4,
+    "planet" : "Earth",
+    "age" : null,
+    "traits" : [ "SHORT", "BULKY" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 5,
+    "planet" : "Vogsphere",
+    "age" : null,
+    "traits" : [ "BULKY" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 6,
+    "planet" : "Earth",
+    "age" : 26,
+    "traits" : [ "EXTRA_ARMS" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 7,
+    "planet" : "Asgard",
+    "age" : 2034,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 8,
+    "planet" : "Betelgeuse",
+    "age" : 82,
+    "traits" : [ "EXTRA_HEAD" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 9,
+    "planet" : "Earth",
+    "age" : 124,
+    "traits" : [ "SHORT", "BULKY" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 10,
+    "planet" : "Endor",
+    "age" : null,
+    "traits" : null,
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 11,
+    "planet" : "Vogsphere",
+    "age" : 128,
+    "traits" : [ "GREEN" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 12,
+    "planet" : "Endor",
+    "age" : 34,
+    "traits" : [ "HAIRY", "SHORT" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 13,
+    "planet" : "Kashyyyk",
+    "age" : 352,
+    "traits" : [ "HAIRY", "TALL" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 14,
+    "planet" : "Earth",
+    "age" : 7523,
+    "traits" : null,
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 15,
+    "planet" : "Earth",
+    "age" : 451,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 16,
+    "planet" : "Vogsphere",
+    "age" : 128,
+    "traits" : [ "GREEN", "BULKY" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 17,
+    "planet" : "Kashyyyk",
+    "age" : 154,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 18,
+    "planet" : "Asgard",
+    "age" : null,
+    "traits" : [ "BLONDE", "TALL" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 19,
+    "planet" : "Earth",
+    "age" : 451,
+    "traits" : [ "BLONDE", "POINTY_EARS" ],
+    "humanoid" : true,
+    "isHumanoid" : true
+  }, {
+    "id" : 20,
+    "planet" : "Endor",
+    "age" : 22,
+    "traits" : null,
+    "humanoid" : false,
+    "isHumanoid" : false
+  }, {
+    "id" : 21,
+    "planet" : "Betelgeuse",
+    "age" : 45,
+    "traits" : [ "EXTRA_ARMS", "EXTRA_HEAD" ],
+    "humanoid" : false,
+    "isHumanoid" : false
+  } ]
+}
