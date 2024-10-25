@@ -1,7 +1,7 @@
 import java.util.List;
 //import java.util.Scanner;
 import java.util.Map;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 class CreatureInfo {
     private Long id;
     private Boolean isHuman;
