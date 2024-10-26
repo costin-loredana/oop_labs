@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Display",
+            "request": "launch",
+            "mainClass": "com.example.Display",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
+            "name": "Display",
+            "request": "launch",
+            "mainClass": "Display",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
             "name": "EntityClassifier",
             "request": "launch",
             "mainClass": "EntityClassifier",
