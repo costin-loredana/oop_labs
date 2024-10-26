@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FileReader",
+            "request": "launch",
+            "mainClass": "FileReader",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
             "name": "Display",
             "request": "launch",
             "mainClass": "com.example.Display",
