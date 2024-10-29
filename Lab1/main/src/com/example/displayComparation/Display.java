@@ -53,9 +53,8 @@ public class Display {
         }
     }
 
-     // Override toString method to provide meaningful output
-     @Override
-     public String toString() {
-         return "Display Model: " + model + ", Width: " + width + ", Height: " + height + ", PPI: " + ppi;
-     }
+    @Override
+    public String toString() {
+        return "Display Model: " + model + ", Width: " + width + ", Height: " + height + ", PPI: " + ppi;
+    }
 }

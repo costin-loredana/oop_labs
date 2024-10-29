@@ -1,6 +1,7 @@
 package com.example.assistant;
 
-import com.example.displayComparation.Display; // Import the Display class
+import com.example.displayComparation.Display;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -40,7 +41,7 @@ public class Assistant {
                 System.out.println("Invalid input. Please enter a number.");
                 scanner.next();
             }
-            choice = scanner.nextInt() - 1; // Convert to zero-based index
+            choice = scanner.nextInt() - 1; 
             if (choice >= 0 && choice < assignedDisplays.size()) {
                 break;
             } else {
