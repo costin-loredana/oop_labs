@@ -58,7 +58,7 @@ public class Classification {
     }
 
     private void classifyByTraits(Map<String, List<CreatureInfo>> classifiedCreatures, CreatureInfo creature) {
-        if (creature.getTraits() == null || creature.getTraits().isEmpty()) {
+        if (creature.getTraits() == null || creature.getTraits().length == 0) {
             System.out.println("Warning: No traits found for ID: " + creature.getId());
             return; // Skip classification if no traits
         }
@@ -66,79 +66,51 @@ public class Classification {
         // Check for classification based on traits
         boolean classified = false;
 
-        // Star Wars
-        if (creature.getIsHuman() != null && !creature.getIsHuman() && creature.getAge() != null) {
-            if (creature.getAge() >= 0 && creature.getAge() <= 400) {
-                for (String trait : creature.getTraits()) {
-                    if (trait.equals("HAIRY") || trait.equals("TALL")) {
-                        classifiedCreatures.get("Star Wars").add(creature);
-                        classified = true;
-                        break;
-                    }
-                }
-            } else if (creature.getAge() >= 0 && creature.getAge() <= 60) {
-                for (String trait : creature.getTraits()) {
-                    if (trait.equals("SHORT") || trait.equals("HAIRY")) {
-                        classifiedCreatures.get("Star Wars").add(creature);
-                        classified = true;
-                        break;
-                    }
-                }
-            }
-        }
-
-        // Marvel
-        if (!classified && creature.getIsHuman() != null && creature.getIsHuman()) {
-            if (creature.getAge() != null && creature.getAge() >= 0 && creature.getAge() <= 5000) {
-                for (String trait : creature.getTraits()) {
-                    if (trait.equals("BLONDE") || trait.equals("TALL")) {
-                        classifiedCreatures.get("Marvel").add(creature);
-                        classified = true;
-                        break;
-                    }
-                }
-            }
-        }
-
-        // Hitchhiker
-        if (!classified && creature.getIsHuman() != null && creature.getIsHuman()) {
-            if (creature.getAge() != null && creature.getAge() >= 0 && creature.getAge() <= 100) {
-                for (String trait : creature.getTraits()) {
-                    if (trait.equals("EXTRA_ARMS") || trait.equals("EXTRA_HEAD")) {
-                        classifiedCreatures.get("Hitchhiker").add(creature);
-                        classified = true;
-                        break;
-                    }
-                }
-            } else if (creature.getIsHuman() != null && !creature.getIsHuman() && creature.getAge() != null) {
-                if (creature.getAge() >= 0 && creature.getAge() <= 200) {
-                    for (String trait : creature.getTraits()) {
-                        if (trait.equals("GREEN") || trait.equals("BULKY")) {
-                            classifiedCreatures.get("Hitchhiker").add(creature);
-                            classified = true;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        // Lord of the Rings
-        if (!classified && creature.getIsHuman() != null && creature.getIsHuman()) {
-            if (creature.getAge() == null || creature.getAge() >= 0 && creature.getAge() <= 200) {
-                for (String trait : creature.getTraits()) {
-                    if (trait.equals("SHORT") || trait.equals("BULKY") || trait.equals("BLONDE") || trait.equals("POINTY_EARS")) {
-                        classifiedCreatures.get("Lord of the Rings").add(creature);
-                        classified = true;
-                        break;
-                    }
-                }
+        // Determine classification based on whether the creature is human or non-human
+        if (creature.getIsHuman() != null) {
+            if (creature.getIsHuman()) {
+                classifyHuman(classifiedCreatures, creature);
+            } else {
+                classifyNonHuman(classifiedCreatures, creature);
             }
         }
 
         if (!classified) {
             System.out.println("Warning: Could not classify creature with ID: " + creature.getId());
             unclassifiedCreatures.add(creature); // Add to unclassified if not classified by traits
+        }
+    }
+
+    private void classifyHuman(Map<String, List<CreatureInfo>> classifiedCreatures, CreatureInfo creature) {
+        if (creature.getAge() != null) {
+            if (creature.getAge() <= 200) {
+                for (String trait : creature.getTraits()) {
+                    if (trait.equals("SHORT") || trait.equals("BULKY") || trait.equals("BLONDE") || trait.equals("POINTY_EARS")) {
+                        classifiedCreatures.get("Lord of the Rings").add(creature);
+                        return;
+                    }
+                }
+            }
+            // Extend conditions for Marvel classification
+            if (creature.getAge() <= 5000) {
+                for (String trait : creature.getTraits()) {
+                    if (trait.equals("BLONDE") || trait.equals("TALL")) {
+                        classifiedCreatures.get("Marvel").add(creature);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    private void classifyNonHuman(Map<String, List<CreatureInfo>> classifiedCreatures, CreatureInfo creature) {
+        if (creature.getAge() != null && creature.getAge() <= 400) {
+            for (String trait : creature.getTraits()) {
+                if (trait.equals("HAIRY") || trait.equals("TALL")) {
+                    classifiedCreatures.get("Star Wars").add(creature);
+                    return;
+                }
+            }
         }
     }
 

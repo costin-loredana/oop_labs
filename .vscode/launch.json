@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "java-classifcation"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.example.Main",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
+            "name": "FileReader",
+            "request": "launch",
+            "mainClass": "FileReader",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
+            "name": "Display",
+            "request": "launch",
+            "mainClass": "com.example.Display",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
+            "name": "Display",
+            "request": "launch",
+            "mainClass": "Display",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "main"
+        },
+        {
+            "type": "java",
             "name": "EntityClassifier",
             "request": "launch",
             "mainClass": "EntityClassifier",

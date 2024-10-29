@@ -1,6 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
-public class LordOfTheRings_Universe {
+public class LordOfTheRings {
     public List<CreatureInfo> classifyCreatures(List<CreatureInfo> creatures) {
         List<CreatureInfo> classifiedCreatures = new ArrayList<>();
 
