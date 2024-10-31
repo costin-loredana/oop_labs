@@ -1,3 +1,4 @@
+package lab0;
 import java.util.List;
 import java.util.Map;
 
