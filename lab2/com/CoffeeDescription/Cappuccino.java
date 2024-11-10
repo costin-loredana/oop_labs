@@ -1,12 +1,10 @@
 package com.CoffeeDescription;
 
-
 public class Cappuccino extends Coffee {
-    
-    private int mlOfMilk;
-    
-    public Cappuccino(Intensity coffeeIntensity, CoffeeName coffeeType, int mlOfMilk ) { 
-        super(coffeeIntensity, coffeeType);
+    protected int mlOfMilk; // Made protected to be accessible in subclasses
+
+    public Cappuccino(Intensity intensity, CoffeeName name, int mlOfMilk) {
+        super(intensity, name);
         this.mlOfMilk = mlOfMilk;
     }
 
@@ -14,20 +12,16 @@ public class Cappuccino extends Coffee {
         return mlOfMilk;
     }
 
-    //method reuse for printing details:
     @Override
-    public void printCoffeeDetails() {
-        super.printCoffeeDetails();
-        System.out.println("You wanted " + getMlOfMilk() + " ml of milk");
+    protected void printCoffeeDetails() {
+        System.out.println("Preparing cappuccino with " + mlOfMilk + " ml of milk.");
     }
-    //make Cappuccino method: using upcasting, because we are 
-    public Cappuccino makeCappuccino() {
-        System.out.println( getCoffeeType() + "in preparation... ");
-        System.out.println("Step 1: Brew a shot of espresso, having " + getCoffeeIntensity() + " intensity");
-        System.out.println("Step 2: Pour the espresso on the cup: ");
-        System.out.println("Step 3: Heat: " +  getMlOfMilk() + " ml of milk");
-        System.out.println("Step 5: Pour the heat milk over espresso. ");
-        System.out.println("Your Cappuccino is ready!! ");
-        return this;
+
+    public void makeCappuccino() {
+        printCoffeeDetails();
+        System.out.println("Step 1: Brew the coffee at " + intensity + " intensity");
+        System.out.println("Step 2: Pour the coffee in the cup");
+        System.out.println("Step 3. Heat " + mlOfMilk + " of milk");
+        System.out.println("Step 4. Pour the milk in the cup");
     }
 }
