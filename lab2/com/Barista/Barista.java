@@ -51,29 +51,77 @@ public class Barista {
     public List<Coffee> getCoffeeMenu() {
         return new ArrayList<>(coffeeMenu); // Return a copy to prevent external modification
     }
+
     public void orderCoffee() {
-        List<Coffee> coffeeMenu = getCoffeeMenu();
-        Scanner scanner = new Scanner(system.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Coffee Menu:");
-        for(int i=0; i<coffeeMenu.size(); i++){
+        for (int i = 0; i < coffeeMenu.size(); i++) {
             System.out.println((i + 1) + ". " + coffeeMenu.get(i).getName());
         }
-        System.out.println("Enter the number of coffee you would like to order: ");
+        System.out.print("Enter the number of the coffee you would like to order: ");
         int choice = scanner.nextInt();
-    }
-    // Example method to make all coffees (encapsulating behavior)
-    public void makeAllCoffees() {
-        for (Coffee coffee : coffeeMenu) {
-            System.out.println("Creating: " + coffee.getName());
-            if (coffee instanceof Cappuccino) {
-                ((Cappuccino) coffee).makeCappuccino();
-            } else if (coffee instanceof Americano) {
-                ((Americano) coffee).makeAmericano();
-            } else if (coffee instanceof SyrupCappuccino) {
-                ((SyrupCappuccino) coffee).makeCappuccino();
-            } else if (coffee instanceof PumpkinSpiceLatte) {
-                ((PumpkinSpiceLatte) coffee).makeCappuccino();
-            }
+
+        if (choice > 0 && choice <= coffeeMenu.size()) {
+            makeCoffee(choice);
+        } else {
+            System.out.println("Invalid selection.");
         }
     }
+    // Example method to make all coffees (encapsulating behavior)
+    private void makeCoffee(int choice) {
+        Coffee selectedCoffee = coffeeMenu.get(choice - 1);
+        System.out.println("Creating: " + selectedCoffee.getName());
+        Scanner scanner = new Scanner(System.in);
+    
+        if (selectedCoffee instanceof SyrupCappuccino) {
+            // Display syrup options dynamically from the SyrupType enum
+            System.out.println("Please select a syrup type:");
+            SyrupType[] syrupTypes = SyrupType.values();
+            for (int i = 0; i < syrupTypes.length; i++) {
+                System.out.println((i + 1) + ". " + syrupTypes[i].name());
+            }
+    
+            int syrupChoice = -1; // Start with an invalid value
+            boolean validChoice = false;  // Flag to track if input is valid
+            SyrupType syrupType = null;  // Initialize syrupType here
+    
+            while (!validChoice) {
+                System.out.print("Enter the number of your choice: ");
+                try {
+                    syrupChoice = scanner.nextInt();
+    
+                    // Check if the chosen number is within the valid range
+                    if (syrupChoice >= 1 && syrupChoice <= syrupTypes.length) {
+                        syrupType = syrupTypes[syrupChoice - 1]; // Get the chosen syrup type
+                        validChoice = true;  // If valid, exit the loop
+                    } else {
+                        System.out.println("We are sorry, we do not have such syrup. Please select from the valid flavors.");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Invalid input. Please enter a valid number.");
+                    scanner.nextLine(); // Clear the invalid input (to prevent infinite loop)
+                }
+            }
+    
+            // Create a custom SyrupCappuccino with the chosen syrup type
+            SyrupCappuccino syrupCappuccino = new SyrupCappuccino(
+                ((SyrupCappuccino) selectedCoffee).getIntensity(),
+                selectedCoffee.getName(),
+                ((SyrupCappuccino) selectedCoffee).getMlOfMilk(),
+                syrupType
+            );
+    
+            syrupCappuccino.makeCappuccino(); // Call the method to "make" the coffee
+    
+        } else if (selectedCoffee instanceof Cappuccino) {
+            ((Cappuccino) selectedCoffee).makeCappuccino();
+    
+        } else if (selectedCoffee instanceof Americano) {
+            ((Americano) selectedCoffee).makeAmericano();
+    
+        } else if (selectedCoffee instanceof PumpkinSpiceLatte) {
+            ((PumpkinSpiceLatte) selectedCoffee).makeCappuccino();
+        }
+    }
+    
 }
