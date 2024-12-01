@@ -14,9 +14,9 @@
 
     <!-- Properties -->
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version> <!-- Update Surefire Plugin version -->
     </properties>
 
     <!-- Dependencies -->
@@ -71,28 +71,23 @@
         </dependency>
     </dependencies>
 
-    <!-- Build section -->
-    <build>
-        <plugins>
-            <!-- Maven Compiler Plugin -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
+   <build>
+  <plugins>
+    <!-- Maven Surefire Plugin for running tests -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.0.0-M5</version>
+      <configuration>
+        <!-- Enables printing output to console during tests -->
+        <redirectTestOutputToFile>false</redirectTestOutputToFile>
+        <useSystemClassLoader>true</useSystemClassLoader>
+        <printSummary>true</printSummary>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
 
-            <!-- Maven Surefire Plugin for running tests -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
-            </plugin>
-        </plugins>
-    </build>
 
     <!-- Reporting Section (Optional for project reports) -->
     <reporting>

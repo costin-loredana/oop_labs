@@ -60,4 +60,7 @@ public class LinkedListQueue<T> implements Queue<T> {
     public int size() {
         return size;
     }
+    private boolean isEmpty() {
+        return size == 0;
+    }
 }

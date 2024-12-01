@@ -1,6 +1,5 @@
 package com.example;
 
-
 public class ArrayQueue<T> implements Queue<T> {
     private Object[] queue;
     private int front;
@@ -14,9 +13,23 @@ public class ArrayQueue<T> implements Queue<T> {
         size = 0;
     }
 
-    // Add an element to the end of the queue
+    public ArrayQueue(Queue<T> otherQueue) {
+        this();
+        Queue<T> tempQueue = new ArrayQueue<>();
+        while (otherQueue.size() > 0) {
+            T element = otherQueue.dequeue();
+            tempQueue.enqueue(element);
+        }
+        while (tempQueue.size() > 0) {
+            enqueue(tempQueue.dequeue());
+        }
+    }
+
     @Override
     public void enqueue(T element) {
+        if (element == null) {
+            throw new IllegalArgumentException("Cannot enqueue null element");
+        }
         if (size == queue.length) {
             resize();
         }
@@ -51,6 +64,9 @@ public class ArrayQueue<T> implements Queue<T> {
         return size;
     }
 
+    private boolean isEmpty() {
+        return size == 0;
+    }
 
     private void resize() {
         int newCapacity = queue.length * 2;

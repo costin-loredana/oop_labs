@@ -11,8 +11,6 @@ public interface Queue<T> {
     void enqueue(T element);
 
     T dequeue();
-    default boolean isEmpty() { 
-        return size() == 0; 
-    }
+    
  }
  

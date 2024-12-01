@@ -26,6 +26,8 @@ public class CircularLinkedListQueue<T> implements Queue<T> {
             tail.next = tail;
         } else{
             new_node.next = tail.next;
+            tail.next = new_node; 
+            tail = new_node;  
         }
         size++;
     }
@@ -58,5 +60,7 @@ public class CircularLinkedListQueue<T> implements Queue<T> {
     public int size() {
         return size;
     }
-
+    private boolean isEmpty() {
+        return size == 0;
+    }
 }
