@@ -4,6 +4,7 @@ import com.example.Car;
 
 public class ElectricStation implements Refuelable {
     private int electricCarsServed = 0;
+    private int ele_consumption = 0;
     private List<Car> cars;
 
     public ElectricStation(List<Car> cars) {
@@ -15,6 +16,7 @@ public class ElectricStation implements Refuelable {
         Car car = findCarById(carId);
             if (car !=null && car.needsCharging()) {
                 electricCarsServed++;
+                ele_consumption+= car.get_consumption();
                 System.out.println("Refueling electric car " + car.getCarId() + ".");
             }
     }
@@ -34,7 +36,12 @@ public class ElectricStation implements Refuelable {
         return electricCarsServed;
     }
 
+    public int getEleConsuption(){
+        return ele_consumption;
+    }
+
     public void reset() {
         electricCarsServed = 0;
+        ele_consumption = 0;
     }
 }

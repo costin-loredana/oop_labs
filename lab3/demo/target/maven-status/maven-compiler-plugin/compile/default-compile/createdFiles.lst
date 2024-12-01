@@ -8,6 +8,7 @@ com\example\ArrayQueue.class
 com\example\stations\Dineable.class
 com\example\stations\PeopleDinner.class
 com\example\stations\Refuelable.class
+com\example\Car$CarType.class
 com\example\CircularLinkedListQueue$Node.class
 com\example\LinkedListQueue.class
 com\example\CircularLinkedListQueue.class

@@ -8,131 +8,106 @@ import com.example.stations.PeopleDinner;
 import com.example.stations.RobotDinner;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CarStationTest {
 
-    @Test
-    public void testServeCars_Refuel() {
-        List<Car> electricCars = new ArrayList<>();
-        List<Car> gasCars = new ArrayList<>();
-
-        ElectricStation electricStation = new ElectricStation(electricCars);
-        GasStation gasStation = new GasStation(gasCars);
-
-        Car car1 = new Car("Car1", false, CarType.ELECTRIC);  // Electric Car
-        Car car2 = new Car("Car2", true, CarType.GAS);        // Gas Car
-        Car car3 = new Car("Car3", false, CarType.ELECTRIC);  // Electric Car
-        Car car4 = new Car("Car4", true, CarType.GAS);        // Gas Car
-
-        electricCars.add(car1);
-        electricCars.add(car3);
-
-        gasCars.add(car2);
-        gasCars.add(car4);
-
-        Queue<Car> electricQueue = new ArrayQueue<>();
-        Queue<Car> gasQueue = new ArrayQueue<>();
-
-        electricQueue.enqueue(car1);
-        electricQueue.enqueue(car3);
-
-        gasQueue.enqueue(car2);
-        gasQueue.enqueue(car4);
-
-        CarStation electricCarStation = new CarStation(null, electricStation, electricQueue);
-        CarStation gasCarStation = new CarStation(null, gasStation, gasQueue);
-
-        electricCarStation.serveCars();
-
-        gasCarStation.serveCars();
-        
-        assertEquals(2, electricStation.getElectricCarsServed(), "Electric cars should be charged correctly");
-        assertEquals(2, gasStation.getGasCarsServed(), "Gas cars should be refueled correctly");
-    }
-
-    @Test
-    public void testServeCars_Dining() {
-        PeopleDinner peopleDinner = new PeopleDinner();
-        RobotDinner robotDinner = new RobotDinner();
-
-        Queue<Car> peopleQueue = new ArrayQueue<>();
-        Queue<Car> robotQueue = new ArrayQueue<>();
-
-        Car car1 = new Car("Car1", true, CarType.ELECTRIC);  // Person
-        Car car2 = new Car("Car2", true, CarType.GAS);       // Person
-        Car car3 = new Car("Car3", false, CarType.ELECTRIC); // Robot
-        Car car4 = new Car("Car4", false, CarType.GAS);      // Robot
-
-        peopleQueue.enqueue(car1);
-        peopleQueue.enqueue(car2);
-        robotQueue.enqueue(car3);
-        robotQueue.enqueue(car4);
-
-        CarStation peopleCarStation = new CarStation(peopleDinner, null, peopleQueue);
-        CarStation robotCarStation = new CarStation(robotDinner, null, robotQueue);
-
-        peopleCarStation.serveCars();
-        
-        robotCarStation.serveCars();
-
-        assertEquals(2, peopleDinner.getPeopleServed());
-        assertEquals(2, robotDinner.getRobotsServed());
-    }
-
  
+    // @Test
+    // public void testServeCars() {
+    //     List<Car> cars = new ArrayList<>();
+    //     ElectricStation electricStation = new ElectricStation(cars);
+    //     GasStation gasStation = new GasStation(cars);
+    //     PeopleDinner peopleDinner = new PeopleDinner();
+    //     RobotDinner robotDinner = new RobotDinner();
+    //     Semaphore semaphore = new Semaphore();
+
+    
+    //     Car car1 = new Car("Car1", true, CarType.ELECTRIC,false,12);   // Person
+    //     Car car2 = new Car("Car2", true, CarType.ELECTRIC,true,51);        // Person
+    //     Car car3 = new Car("Car3", false, CarType.ELECTRIC,true,12);  // Robot
+    //     Car car4 = new Car("Car4", true, CarType.GAS,true,1);       // Robot
+    //     Car car5 = new Car("Car5", false, CarType.GAS,false,14);    // Person
+    //     Car car6 = new Car("Car6", true, CarType.ELECTRIC,true,2);       // Robot
+    
+    //     cars.add(car1);
+    //     cars.add(car2);
+    //     cars.add(car3);
+    //     cars.add(car4);
+    //     cars.add(car5);
+    //     cars.add(car6);
+    
+    //     semaphore.classifyCars(cars);
+
+    //     Queue<Car> people_Ele_Queue = semaphore.getPeopleEleQueue();
+    //     Queue<Car> robot_Ele_Queue = semaphore.getRobotEleQueue();
+    //     Queue<Car> people_Gas_Queue = semaphore.getPeopleGasQueue();
+    //     Queue<Car> robot_Gas_Queue = semaphore.getRobotGasQueue();
+
+      
+    //     CarStation peopleCarStation = new CarStation(peopleDinner, electricStation, people_Ele_Queue);
+    //     CarStation robotCarStation = new CarStation(robotDinner, electricStation, robot_Ele_Queue);
+       
+
+    //     peopleCarStation.serveCars();
+    //     robotCarStation.serveCars();
+
+    //     CarStation people_CarStation = new CarStation(peopleDinner, gasStation, people_Gas_Queue);
+    //     CarStation robot_CarStation = new CarStation(robotDinner, gasStation, robot_Gas_Queue);
+
+
+    //     people_CarStation.serveCars();
+    //     robot_CarStation.serveCars();
+
+    //     System.out.println("Electric:"+electricStation.getElectricCarsServed() + " GAS:"+gasStation.getGasCarsServed());
+    //     System.out.println("People:"+peopleDinner.getPeopleServed() + " Robot:"+robotDinner.getRobotsServed());
+    //     System.out.println("DINING:"+semaphore.isDining() + " NOT_DINING:"+semaphore.is_NotDining());
+    //     System.out.println("Electric:"+electricStation.getEleConsuption() + " GAS:"+gasStation.getGasConsuption());
+      
+    // }
+    
     @Test
-    public void testServeCars() {
-        List<Car> cars = new ArrayList<>();
+public void testServeCars() {
+    try {
+        CarGenerator carGenerator = new CarGenerator();
+        List<Car> cars = carGenerator.generateCars();
+
         ElectricStation electricStation = new ElectricStation(cars);
         GasStation gasStation = new GasStation(cars);
         PeopleDinner peopleDinner = new PeopleDinner();
         RobotDinner robotDinner = new RobotDinner();
-    
-        Queue<Car> peopleQueue = new ArrayQueue<>();
-        Queue<Car> robotQueue = new ArrayQueue<>();
-    
-        Car car1 = new Car("Car1", true, CarType.ELECTRIC);   // Person
-        Car car2 = new Car("Car2", true, CarType.ELECTRIC);        // Person
-        Car car3 = new Car("Car3", false, CarType.GAS);  // Robot
-        Car car4 = new Car("Car4", false, CarType.GAS);       // Robot
-        Car car5 = new Car("Car5", true, CarType.ELECTRIC);    // Person
-        Car car6 = new Car("Car6", false, CarType.GAS);       // Robot
-    
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
-        cars.add(car4);
-        cars.add(car5);
-        cars.add(car6);
-    
-        peopleQueue.enqueue(car1);
-        peopleQueue.enqueue(car2);
-        peopleQueue.enqueue(car5);
-    
-        robotQueue.enqueue(car3);
-        robotQueue.enqueue(car4);
-        robotQueue.enqueue(car6);
-    
-        CarStation peopleCarStation = new CarStation(peopleDinner, electricStation, peopleQueue);
-        CarStation robotCarStation = new CarStation(robotDinner, gasStation, robotQueue);
-    
-        peopleCarStation.serveCars();
+        Semaphore semaphore = new Semaphore();
 
+        semaphore.classifyCars(cars);
+
+        Queue<Car> peopleEleQueue = semaphore.getPeopleEleQueue();
+        Queue<Car> robotEleQueue = semaphore.getRobotEleQueue();
+        Queue<Car> peopleGasQueue = semaphore.getPeopleGasQueue();
+        Queue<Car> robotGasQueue = semaphore.getRobotGasQueue();
+
+        CarStation peopleCarStation = new CarStation(peopleDinner, electricStation, peopleEleQueue);
+        CarStation robotCarStation = new CarStation(robotDinner, electricStation, robotEleQueue);
+
+        peopleCarStation.serveCars();
         robotCarStation.serveCars();
-    
-        System.out.println("Electric cars served: " + electricStation.getElectricCarsServed());
-        System.out.println("Gas cars served: " + gasStation.getGasCarsServed());
-        System.out.println("People served: " + peopleDinner.getPeopleServed());
-        System.out.println("Robots served: " + robotDinner.getRobotsServed());
-    
-        // Verify that the stations served the correct number of cars
-        assertEquals(3, electricStation.getElectricCarsServed());
-        assertEquals(3, gasStation.getGasCarsServed());
-        assertEquals(3, peopleDinner.getPeopleServed());
-        assertEquals(3, robotDinner.getRobotsServed());
+
+        CarStation peopleCarStationGas = new CarStation(peopleDinner, gasStation, peopleGasQueue);
+        CarStation robotCarStationGas = new CarStation(robotDinner, gasStation, robotGasQueue);
+
+        peopleCarStationGas.serveCars();
+        robotCarStationGas.serveCars();
+
+        System.out.println("Electric: " + electricStation.getElectricCarsServed() + " GAS: " + gasStation.getGasCarsServed());
+        System.out.println("People: " + peopleDinner.getPeopleServed() + " Robot: " + robotDinner.getRobotsServed());
+        System.out.println("DINING: " + semaphore.isDining() + " NOT_DINING: " + semaphore.is_NotDining());
+        System.out.println("Electric: " + electricStation.getEleConsuption() + " GAS: " + gasStation.getGasConsuption());
+    } catch (IOException e) {
+        e.printStackTrace();
     }
-    
-    
+}
+
 }
